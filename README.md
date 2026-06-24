@@ -8,6 +8,9 @@
 > - **Live Endpoint URL**: `https://bajajhack-production-4ee7.up.railway.app/bfhl`
 > - **Method**: `POST` (Accepts JSON body) / `GET` (Health Check returns `{"operation_code":1}`)
 
+### 📷 Live Verification Proof
+![GET Endpoint Verification Response](proof.png)
+
 ---
 
 ## 🛠️ Architecture & Tech Stack
