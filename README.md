@@ -9,7 +9,11 @@
 > - **Method**: `POST` (Accepts JSON body) / `GET` (Health Check returns `{"operation_code":1}`)
 
 ### 📷 Live Verification Proof
-![GET Endpoint Verification Response](proof.png)
+- **GET Endpoint Health check (`GET /bfhl`)**:
+  ![GET Endpoint Verification Response](proof.png)
+
+- **POST Endpoint Data Processing (`POST /bfhl`)**:
+  ![POST Endpoint Verification Response](proof_postman.png)
 
 ---
 
