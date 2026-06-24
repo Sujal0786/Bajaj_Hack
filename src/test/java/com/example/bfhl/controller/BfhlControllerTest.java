@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -98,5 +99,12 @@ public class BfhlControllerTest {
                 .content(requestBody))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.is_success", is(false)));
+    }
+
+    @Test
+    public void testGetEndpoint() throws Exception {
+        mockMvc.perform(get("/bfhl"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.operation_code", is(1)));
     }
 }

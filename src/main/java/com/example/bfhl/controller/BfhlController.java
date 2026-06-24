@@ -22,4 +22,9 @@ public class BfhlController {
         BfhlResponse response = bfhlService.processRequest(request);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping
+    public ResponseEntity<java.util.Map<String, Object>> getOperationCode() {
+        return ResponseEntity.ok(java.util.Map.of("operation_code", 1));
+    }
 }
