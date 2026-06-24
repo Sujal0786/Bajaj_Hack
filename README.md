@@ -1,10 +1,12 @@
 # 🚀 Bajaj Health (BFHL) Spring Boot Developer Challenge API
 
-[![Java CI with Maven](https://github.com/Sujal0786/Bajaj_Hack/actions/workflows/maven.yml/badge.svg)](https://github.com/Sujal0786/Bajaj_Hack/actions)
-[![Java Version](https://img.shields.io/badge/Java-17%20%2F%2021-orange.svg)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
-
-A highly optimized, production-ready REST API implementing the Bajaj Finserv Health Limited (BFHL) developer challenge. It processes input lists of items, extracts odd/even numbers, calculates mathematical sums securely using arbitrary-precision arithmetic, converts and filters alphabet sets, and constructs custom reversed-alternating-caps string sequences.
+> [!IMPORTANT]
+> **🚨 ACCESS & TESTING NOTICE (Indian ISP DNS Block)**:
+> Major telecom operators and broadband ISPs in India (such as Jio, Airtel, ACT, Hathway, etc.) block the `*.up.railway.app` wildcard domain at their local DNS level.
+> - **If you are evaluating from an Indian Consumer Network**: Please enable a VPN (e.g. ProtonVPN, Opera built-in VPN, or any free browser extension) or change your DNS server to Google DNS (`8.8.8.8`) to resolve the domain.
+> - **If you are evaluating from a Cloud Network / Server (AWS, GCP, GitHub Actions, University Cloud servers)**: The domain is fully propagated and resolves globally without any adjustments.
+> - **Live Endpoint URL**: `https://bajajhack-production-4ee7.up.railway.app/bfhl`
+> - **Method**: `POST` (Accepts JSON body) / `GET` (Health Check returns `{"operation_code":1}`)
 
 ---
 
@@ -66,19 +68,19 @@ Bajaj_Hack/
 
 ---
 
-## 📡 API Endpoints
+## 📡 API Endpoints & Verification Commands
 
 ### 1. `POST /bfhl`
 Processes the payload array.
 
-- **Request Headers**: `Content-Type: application/json`
-- **Request Body Format**:
+* **Request Headers**: `Content-Type: application/json`
+* **Request Body Format**:
   ```json
   {
     "data": ["a", "1", "334", "4", "R", "$"]
   }
   ```
-- **Response Format (HTTP 200)**:
+* **Response Format (HTTP 200)**:
   ```json
   {
     "is_success": true,
@@ -94,17 +96,26 @@ Processes the payload array.
   }
   ```
 
+* **Test Curl Command**:
+  ```bash
+  curl -X POST https://bajajhack-production-4ee7.up.railway.app/bfhl \
+    -H "Content-Type: application/json" \
+    -d '{"data": ["a", "1", "334", "4", "R", "$"]}'
+  ```
+
 ---
 
 ### 2. `GET /bfhl`
 Used as a health check and validation hook by the challenge portal.
 
-- **Response Format (HTTP 200)**:
+* **Response Format (HTTP 200)**:
   ```json
   {
     "operation_code": 1
   }
   ```
+
+* **Test Link**: [https://bajajhack-production-4ee7.up.railway.app/bfhl](https://bajajhack-production-4ee7.up.railway.app/bfhl)
 
 ---
 
@@ -124,14 +135,3 @@ Test it locally using PowerShell:
 ```powershell
 Invoke-RestMethod -Uri http://localhost:8080/bfhl -Method Post -ContentType 'application/json' -Body '{"data": ["a", "1", "334"]}' | ConvertTo-Json
 ```
-
----
-
-## ☁️ Deployment Instructions
-
-### One-Click Deploy to Railway (Recommended)
-1. Log in to [Railway.app](https://railway.app/).
-2. Select **New Project** -> **Deploy from GitHub repository**.
-3. Choose the **Sujal0786/Bajaj_Hack** repository.
-4. Click **Deploy**.
-5. Once complete, click **Generate Domain** in the service settings to get your public API URL.
